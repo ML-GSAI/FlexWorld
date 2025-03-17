@@ -1,3 +1,7 @@
+# FlexWorld
+[![deploy](https://img.shields.io/badge/🤗%20Hugging%20Face%20-FlexWorld-FFEB3B)](https://huggingface.co/GSAI-ML/FlexWorld)
+[![deploy](https://img.shields.io/badge/Project%20Page-black)](https://ml-gsai.github.io/FlexWorld/)
+
 This is the official PyTorch implementation of FlexWorld: Progressively Expanding 3D Scenes for Flexiable-View Synthesis.
 
 ## Installation
