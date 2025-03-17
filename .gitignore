@@ -1,0 +1,36 @@
+.vscode/
+**/__pycache__
+**/*.pyc
+cache*/
+results*/
+watch/
+tmp/
+configs_test/
+eval_results/
+colmap_cache/
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+*.log
+ 
+# point cloud data
+*.ply
+
+ 
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+ 
+
+tools/InstantMesh/1.png
+tools/dust3r/croco/assets/
+tools/CogVideo/checkpoints/t5-v1_1-xxl/spiece.model
+
+
+all_experiment*/

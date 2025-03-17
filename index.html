@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Progressively Expanding 3D Scenes for Flexiable-View Synthesis.">
+  <meta name="keywords" content="FlexWorld, Video diffusion, 3DGS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlexWorld: Progressively Expanding 3D Scenes for Flexiable-View Synthesis</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/gsai.jpg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/canvas.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">FlexWorld: Progressively Expanding 3D Scenes for Flexiable-View Synthesis</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/TRL-0">Luxi Chen</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/zhozhh">Zihan Zhou</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=ExIZrLAAAAAJ&hl=zh-CN">Min Zhao</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+                <a href="https://yikaiw.github.io/">Yikai Wang</a><sup>4</sup>,
+              </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=qyTrq4kAAAAJ&hl=zh-CN">Ge Zhang</a><sup>5</sup>,
+            </span>
+            <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=qyTrq4kAAAAJ&hl=zh-CN">Wenhao Huang</a><sup>5</sup>,
+              </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=PaxAtLkAAAAJ&hl=en">Hao Sun</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://gsai.ruc.edu.cn/english/jrwen">Jirong Wen</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://zhenxuan00.github.io/">Chongxuan Li</a><sup>1,2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Renmin University of China</span>
+            <span class="author-block"><sup>2</sup>Beijing Key Laboratory of Big Data Management and Analysis Methods</span>
+            <span class="author-block"><sup>3</sup>Tsinghua University</span>
+            <span class="author-block"><sup>4</sup>Beijing Normal University</span>
+            <span class="author-block"><sup>5</sup>ByteDance</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ML-GSAI/FlexWorld"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/front2.png" alt="front image">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">FlexWorld</span> progressively generates flexible-views 3DGS scenes via the V2V diffusion.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+            <p>
+                We introduce <span class="dnerf">FlexWorld</span>, a novel framework consisting of two key components: 
+                (1) a strong video-to-video (V2V) diffusion model to generate high-quality novel view images 
+                from incomplete input rendered from a coarse scene, and 
+                (2) a progressive expansion process to construct a complete 3D scene. 
+                In particular, leveraging an advanced pre-trained video model and accurate depth-estimated 
+                training pairs, our V2V model can generate novel views under large camera pose variations. 
+                Building upon it, <span class="dnerf">FlexWorld</span> progressively generates new 3D content and integrates it into 
+                the global scene through geometry-aware scene fusion. Extensive experiments demonstrate the 
+                effectiveness of <span class="dnerf">FlexWorld</span> in generating high-quality novel view videos and flexible-view 3D 
+                scenes from single images, achieving superior visual quality under multiple popular metrics
+                 and datasets compared to existing state-of-the-art methods. Qualitatively, we highlight 
+                 that <span class="dnerf">FlexWorld</span> can generate high-fidelity scenes with flexible views like 360° rotations and zooming.
+            </p>
+            </div>
+        </div>
+        </div>
+        <!--/ Abstract. -->
+</section>
+
+
+
+
+
+
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+            <h2 class="title is-3">Video Results with Given Trajectory</h2>
+            <div class="content has-text-justified">
+            <p>
+                <span class="dnerf">FlexWorld</span> generates videos with point clouds and a given trajectory, each row represents the generated videos under the same trajectory.
+            </p>
+            </div>
+        </div>
+        </div>
+
+        <div class="columns is-centered is-gapless">
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/14/cabin.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/cabin.png"
+                        alt="cabin." />
+                </div>
+            </div>
+
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/14/car.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/car.png"
+                        alt="car." />
+                </div>
+            </div>
+
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/14/castle.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/castle.png"
+                        alt="castle." />
+                </div>
+            </div>
+
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/14/desert.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/desert.png"
+                        alt="desert." />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="columns is-centered is-gapless">
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/17/piano.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/piano.png"
+                        alt="cabin." />
+                </div>
+            </div>
+
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/17/bear.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/bear.png"
+                        alt="bear." />
+                </div>
+            </div>
+
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/17/dl3dv.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/dl3dv.png"
+                        alt="castle." />
+                </div>
+            </div>
+
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/17/mountain2.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/mountain2.png"
+                        alt="desert." />
+                </div>
+            </div>
+        </div>
+
+        <div class="columns is-centered is-gapless">
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/f/co3d.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/sample8.png"
+                        alt="cabin." />
+                </div>
+            </div>
+
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/f/sd_bedroom.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/sd_bedroom.png"
+                        alt="car." />
+                </div>
+            </div>
+
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/f/seaside.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/seaside.png"
+                        alt="castle." />
+                </div>
+            </div>
+
+            <div class="column is-flex is-flex-direction-column is-gapless is-4">
+                <video poster="" id="video" autoplay controls muted loop playsinline>
+                    <source src="./static/videos_traj/f/motor.mp4"
+                            type="video/mp4">
+                </video>
+                <div class="container is-marginless is-paddingless">
+                    <img src="./static/images/motor.png"
+                        alt="desert." />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h2 class="title is-3">More Video Results</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mat_anime_lake.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mat_cat.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mat_girl.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mat_house.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/mat_christmas.mp4"
+                      type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h2 class="title is-3">Scene Generation Results</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/scene_christmas2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/scene_house2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-shiba">
+            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/scene_room22.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/scene_room32.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-blueshirt">
+            <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/scene_sdlivingroom2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3">Interactive View</h2>
+            <div class="content has-text-justified">
+            <p>
+                Press Key WASD to move the camera, and IJKL to rotate, Press R to reset camera.
+                Use the mouse to drag. 
+            </p>
+            <p>
+                Click an image below, then press Load to interactively view the scene. 
+                This may take a while, for a scene is about 200MB.
+                If you feel stuck, press Clear to stop rendering.
+            </p>
+            </div>
+
+            <div class="container is-flex is-align-items-center is-justify-content-center">
+
+                <div class="image-radio-group is-centered">
+                    <label class="image-radio-item">
+                    <input type="radio" name="image-radio" value="house">
+                    <img src="./static/images/house.png" alt="Image 1">
+                    </label>
+                    <label class="image-radio-item">
+                    <input type="radio" name="image-radio" value="christmas">
+                    <img src="./static/images/christmas.png" alt="Image 2">
+                    </label>
+                    <label class="image-radio-item">
+                    <input type="radio" name="image-radio" value="room2">
+                    <img src="./static/images/room2.png" alt="Image 3">
+                    </label>
+                    <label class="image-radio-item">
+                    <input type="radio" name="image-radio" value="room3">
+                    <img src="./static/images/room3.png" alt="Image 4">
+                    </label>
+                    <label class="image-radio-item">
+                    <input type="radio" name="image-radio" value="sd_livingroom">
+                    <img src="./static/images/sd_livingroom.png" alt="Image 5">
+                    </label>
+                </div>
+
+                <div class="container full-height">
+                    <div class="columns is-centered full-height">
+                      <div class="column is-half">
+                        <div class="button-container">
+                          <button class="button is-primary" id="btn_load">Load</button>
+                          <button class="button is-info" id="btn_clear">Clear</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+            </div>
+        
+
+            <div id="container-canvas">
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+            <h2 class="title is-3">Methods</h2>
+            <div class="content has-text-justified">
+            <p>
+                <span class="dnerf">FlexWorld</span> trains a strong V2V diffusion capable of generating high-quality videos from incomplete
+                views rendered from coarse 3D scenes. It progressively expands the 3D scene by adding 
+                 new 3D content estimated from the refined videos via a dense stereo model. Ultimately, 
+                from a single image, it yields a detailed 3D scene capable of rendering flexible viewpoints.
+            </p>
+            <img src="./static/images/pipeline.png"
+                 alt="pipeline image."/>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website template is borrowed from <a
+            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, and the interactive view is modified from 
+            <a href="https://github.com/antimatter15/splat">Splat</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
