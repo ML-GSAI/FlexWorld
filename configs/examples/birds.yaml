@@ -1,0 +1,13 @@
+name: birds
+input_image_path: ./assets_demo/${name}.png
+text_fg: '' # foreground text
+text_bg: '' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'empty sea with nothing, some birds, blue sky, water wave, no blur.'

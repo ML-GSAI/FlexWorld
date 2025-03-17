@@ -1,0 +1,13 @@
+name: mountain2
+input_image_path: ./assets/${name}.png
+text_fg: '' # foreground text
+text_bg: '' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'A picturesque view of a mountain with many houses scattered across its slopes. The houses are nestled among lush green trees and vegetation, with winding paths connecting them. The sky is clear with a few fluffy clouds, and the sun is shining brightly, casting a warm glow over the scene. In the distance, other mountain peaks can be seen, adding depth to the landscape. Birds are flying in the sky, and a gentle breeze rustles the leaves of the trees, creating a serene and peaceful atmosphere.'

@@ -1,0 +1,14 @@
+name: room3
+input_image_path: ./assets/${name}.png
+# input_image_path: ./assets/computer.png
+text_fg: 'chair. table. sofa. plant.' # foreground text
+text_bg: 'window. wall. floor. ceiling. bookshelves.' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: "living room in someone's house. The living room is well-decorated and features a large gray sectional couch as the centerpiece. There are several potted plants placed around the room, adding a touch of greenery to the space. A white circular coffee table is situated in front of the couch, and a variety of books are scattered throughout the room. Additionally, there is a TV mounted on the wall, and a vase can be seen as well. The living room appears to be a comfortable and inviting space for relaxation and entertainment."

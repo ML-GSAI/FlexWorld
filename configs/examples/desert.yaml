@@ -1,0 +1,13 @@
+name: desert
+input_image_path: ./assets/${name}.png
+text_fg: '' # foreground text
+text_bg: '' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'Rotating view of a desert with sand dunes, clear blue sky, occasional cacti, and distant mountains. The sun is setting, casting long shadows and a warm golden hue over the landscape. A gentle breeze stirs the sand, creating small ripples on the dunes. Sparse vegetation and rocks are scattered throughout the scene, adding to the rugged beauty of the desert.'

@@ -1,0 +1,13 @@
+name: bear
+input_image_path: ./assets/${name}.png
+text_fg: '' # foreground text
+text_bg: '' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'Imagine a lively street bathed in sunlight, with quaint shops lining both sides—cafes, bookstores, and flower stalls. The air is filled with the scent of fresh coffee and pastries. People walk leisurely, some browsing through the stores, while bicycles glide by. Green plants decorate balconies above, adding a touch of nature to the urban scene. The pace is relaxed, with soft music drifting from a nearby street performer, creating a peaceful, almost timeless atmosphere.'

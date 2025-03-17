@@ -1,0 +1,13 @@
+name: cabin
+input_image_path: ./assets_demo/${name}.png
+text_fg: '' # foreground text
+text_bg: '' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'wooden house in a forest, trees and flowers around, a road running across.'

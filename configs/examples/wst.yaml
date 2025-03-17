@@ -1,0 +1,14 @@
+name: wst
+input_image_path: ./assets/${name}.png
+# input_image_path: ./assets/computer.png
+text_fg: "tree. monument." # foreground text
+text_bg: 'building. ground.' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'and a few trees. The building appears to be an important or historical site, as indicated by the presence of the statue. The overall atmosphere of the place is peaceful and inviting, making it a suitable location for visitors to explore and appreciate the architecture and the significance of the statue.'

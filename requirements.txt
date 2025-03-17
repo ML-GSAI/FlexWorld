@@ -1,0 +1,25 @@
+accelerate==1.5.2
+av==10.0.0
+diffusers==0.32.0
+einops==0.8.0
+gradio==5.12.0
+gradio_client==1.5.4
+gsplat @ https://github.com/nerfstudio-project/gsplat.git
+huggingface-hub==0.26.1
+imageio==2.36.0
+imageio-ffmpeg==0.5.1
+lpips==0.1.4
+omegaconf==2.3.0
+open-clip-torch==2.17.1
+open3d==0.18.0
+opencv-python==4.10.0.84
+opencv-python-headless==4.10.0.84
+plyfile==1.1
+roma==1.5.0
+scipy==1.14.1
+tensorboard==2.18.0
+tensorboard-data-server==0.7.2
+tensorboardX==2.6.2.2
+torchmetrics==1.5.1
+tqdm==4.66.5
+trimesh==4.5.1

@@ -1,0 +1,14 @@
+name: piano
+input_image_path: ./assets/${name}.png
+# input_image_path: ./assets/computer.png
+text_fg: 'piano. chair. plant.' # foreground text
+text_bg: 'wall. floor.' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'piano placed in a large, well-lit room with wooden floors. The piano is white and is surrounded by elegant decorations, including a vase with flowers nearby. The room appears to be a part of a manor or a high-end event venue. The atmosphere suggests that this location might be used for hosting sophisticated gatherings, recitals, or performances.'

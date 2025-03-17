@@ -1,0 +1,72 @@
+seed: 7616
+type_3dgen: 'instantmesh' # 'trellis' or 'instantmesh'
+type_diffusion: 'cogvideo' # 'viewcrafter' or 'cogvideo'
+size: [1024,576] # [W, H]
+sr: True
+
+dust3r:
+  size: 512
+  square_ok: True
+  force_1024: False
+  model_path: ./tools/dust3r/checkpoint/DUSt3R_ViTLarge_BaseDecoder_512_dpt.pth
+  batch_size: 1
+  niter: 300
+  lr: 0.01
+  schedule: linear
+  bg_trd: 0.2
+  min_conf_thr: 3.0
+  dpt_trd: 1
+
+vlm:
+  llava:
+    ckpt: 'llava-hf/bakLlava-v1-hf' # downloaded from hugging face
+
+inpaint:
+  flux:
+    controlnet: "alimama-creative/FLUX.1-dev-Controlnet-Inpainting-Alpha"
+    pipe: "black-forest-labs/FLUX.1-dev"
+    num_inference_steps: 28
+    controlnet_conditioning_scale: 0.9
+    guidance_scale: 3.5
+    true_guidance_scale: 3.5
+
+diffusion:
+  viewcrafter:
+    seed: ${seed}
+    config: ./tools/ViewCrafter/configs/inference_pvd_1024.yaml
+    ckpt_path: ./tools/ViewCrafter/checkpoints/model.ckpt
+    perframe_ae: True
+    height: ${size[1]}
+    width: ${size[0]}
+    video_length: 25
+    bs: 1
+    elevation: 5
+    center_scale: 1.0
+    dpt_trd: ${dust3r.dpt_trd}
+    n_samples: 1
+    prompt: 'Rotating view of a scene'
+    ddim_steps: 50
+    ddim_eta: 1.0
+    unconditional_guidance_scale: 7.5
+    cfg_img: null
+    frame_stride: 10
+    text_input: True
+    multiple_cond_cfg: False
+    timestep_spacing: "uniform_trailing"
+    guidance_rescale: 0.7
+
+  cogvideo:
+    prompt: 'Rotating view of a scene'
+
+refine:
+  imgnum: 6
+
+gs:
+  xyz_lr: 0.00001
+  rgb_lr: 0.005
+  opacity_lr: 0.05
+  scale_lr: 0.0005
+  rotation_lr: 0.0001
+  w_rgb: 0.8
+  w_ssim: 0.2
+  w_lpips: 0.3

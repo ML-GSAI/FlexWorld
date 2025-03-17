@@ -1,0 +1,13 @@
+name: fruit
+input_image_path: ./assets/${name}.png
+text_fg: '' # foreground text
+text_bg: '' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'a warm and comfortable room with fruit bucket and bed and tables inside.'

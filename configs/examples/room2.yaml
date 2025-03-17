@@ -1,0 +1,18 @@
+name: room2
+input_image_path: ./assets/${name}.png
+# input_image_path: ./assets/computer.png
+text_fg: 'chair. table. sofa. plant. bookshelves.' # foreground text
+text_bg: 'window. wall. floor. ceiling.' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+
+diffusion:
+  cogvideo:
+    prompt: 'a white room. The crib, which is made of wood, is positioned next to a plant in a white pot. A rocking chair is placed nearby, creating a comfortable space for parents to sit and attend to the baby. Additionally, there is a small chair and a rug on the floor, which adds to the warmth and comfort of the room. The overall atmosphere of the nursery is inviting and serene, providing a calming environment for a newborn baby.'
+
+refine:
+  imgnum: 4

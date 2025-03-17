@@ -1,0 +1,14 @@
+name: house
+input_image_path: ./assets/${name}.png
+# input_image_path: ./assets/computer.png
+text_fg: '' # foreground text
+text_bg: '' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'An old-fashioned European village with thatched roofs on the houses. The village has a cobblestone road running through it, lined with houses and flowering potted plants. The houses are built in a traditional style, with wooden beams and stone walls. The road is narrow and winding, adding to the charm of the village. There are small gardens in front of the houses, filled with colorful flowers and neatly trimmed hedges. The village is surrounded by lush green fields and rolling hills, creating a picturesque and serene landscape. In the distance, you can see a church steeple rising above the rooftops, and the sound of birds singing fills the air. The atmosphere is peaceful and idyllic, reminiscent of a bygone era.'

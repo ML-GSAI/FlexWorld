@@ -1,0 +1,14 @@
+name: room
+input_image_path: ./assets/${name}.png
+# input_image_path: ./assets/computer.png
+text_fg: 'chair. table. sofa. plant.' # foreground text
+text_bg: 'bookshelves. window. wall. floor. ceiling.' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'a nice room with bookshelf and bed, a clock hanging on the wall.'

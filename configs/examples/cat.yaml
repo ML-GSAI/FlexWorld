@@ -1,0 +1,13 @@
+name: cat
+input_image_path: ./assets/${name}.png
+text_fg: '' # foreground text
+text_bg: '' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'Imagine a cozy, quiet room bathed in soft, warm light. The air smells faintly of fresh flowers or a hint of incense. A few plants sit in the corners, and gentle curtains sway with the breeze coming through the window. The atmosphere feels peaceful, a perfect retreat where time slows down. A sense of calmness surrounds everything, with little sounds of distant birds or soft footsteps.'

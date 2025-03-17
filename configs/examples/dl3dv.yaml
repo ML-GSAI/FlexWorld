@@ -1,0 +1,13 @@
+name: dl3dv
+input_image_path: ./assets_demo/${name}.png
+text_fg: '' # foreground text
+text_bg: '' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'a classroom with chairs and tables, a blackboard inside the class.'

@@ -1,0 +1,12 @@
+name: test
+text_fg: '' # foreground text
+text_bg: '' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache-test/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache-test/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: ' '

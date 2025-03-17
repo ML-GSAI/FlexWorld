@@ -1,0 +1,13 @@
+name: castle
+input_image_path: ./assets/${name}.png
+text_fg: '' # foreground text
+text_bg: '' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
+
+diffusion:
+  cogvideo:
+    prompt: 'Imagine rolling hills, a winding river, and lush meadows surrounding an ancient castle. Tall trees line the land, with a soft breeze carrying the sounds of nature. The scene is peaceful and timeless, bathed in the warm glow of the setting sun.'

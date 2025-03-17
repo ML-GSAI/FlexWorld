@@ -1,0 +1,9 @@
+name: computer
+input_image_path: ./assets/${name}.png
+text_fg: "computer. pad. cellphone. pillow." # foreground text
+text_bg: 'table. sofa. ground.' # background text
+
+inpaint:
+  inpaint_bg_path: ./cache/inpaint_bg_${name}.png
+  outpainting: False #  
+  outpaint_image_path: ./cache/outpaint_${name}.png
