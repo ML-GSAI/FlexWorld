@@ -39,7 +39,6 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
-  <script src="./static/js/canvas.js"></script>
 </head>
 <body>
 
@@ -131,9 +130,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="./static/images/front2.png" alt="front image">
+      <img src="./static/images/front.png" alt="front image">
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">FlexWorld</span> progressively generates flexible-views 3DGS scenes via the V2V diffusion.
+        <span class="dnerf">FlexWorld</span> generates high-quality videos with camera control and flexible-view 3D scenes progressively.
       </h2>
     </div>
   </div>
@@ -165,12 +164,6 @@
         </div>
         <!--/ Abstract. -->
 </section>
-
-
-
-
-
-
 
 
 <section class="section">
@@ -328,7 +321,6 @@
 </section>
 
 
-
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container has-text-centered">
@@ -409,73 +401,7 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-            <h2 class="title is-3">Interactive View</h2>
-            <div class="content has-text-justified">
-            <p>
-                Press Key WASD to move the camera, and IJKL to rotate, Press R to reset camera.
-                Use the mouse to drag. 
-            </p>
-            <p>
-                Click an image below, then press Load to interactively view the scene. 
-                This may take a while, for a scene is about 200MB.
-                If you feel stuck, press Clear to stop rendering.
-            </p>
-            </div>
-
-            <div class="container is-flex is-align-items-center is-justify-content-center">
-
-                <div class="image-radio-group is-centered">
-                    <label class="image-radio-item">
-                    <input type="radio" name="image-radio" value="house">
-                    <img src="./static/images/house.png" alt="Image 1">
-                    </label>
-                    <label class="image-radio-item">
-                    <input type="radio" name="image-radio" value="christmas">
-                    <img src="./static/images/christmas.png" alt="Image 2">
-                    </label>
-                    <label class="image-radio-item">
-                    <input type="radio" name="image-radio" value="room2">
-                    <img src="./static/images/room2.png" alt="Image 3">
-                    </label>
-                    <label class="image-radio-item">
-                    <input type="radio" name="image-radio" value="room3">
-                    <img src="./static/images/room3.png" alt="Image 4">
-                    </label>
-                    <label class="image-radio-item">
-                    <input type="radio" name="image-radio" value="sd_livingroom">
-                    <img src="./static/images/sd_livingroom.png" alt="Image 5">
-                    </label>
-                </div>
-
-                <div class="container full-height">
-                    <div class="columns is-centered full-height">
-                      <div class="column is-half">
-                        <div class="button-container">
-                          <button class="button is-primary" id="btn_load">Load</button>
-                          <button class="button is-info" id="btn_clear">Clear</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-            </div>
-        
-
-            <div id="container-canvas">
-                <canvas id="canvas"></canvas>
-            </div>
-        </div>
-        
-        </div>
-    </div>
 </section>
-
 
 
 <section class="section">

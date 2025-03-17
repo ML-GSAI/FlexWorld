@@ -2,14 +2,14 @@ window.HELP_IMPROVE_VIDEOJS = false;
 
 $(document).ready(function() {
 
-    const clearButton = document.querySelector('.button.is-info');
-    const radioInputs = document.querySelectorAll('input[type="radio"]');
+    // const clearButton = document.querySelector('.button.is-info');
+    // const radioInputs = document.querySelectorAll('input[type="radio"]');
 
-    clearButton.addEventListener('click', () => {
-      radioInputs.forEach(input => {
-        input.checked = false; // 清除选中状态
-      });
-    });
+    // clearButton.addEventListener('click', () => {
+    //   radioInputs.forEach(input => {
+    //     input.checked = false; // 清除选中状态
+    //   });
+    // });
 
     // Check for click events on the navbar burger icon
     $(".navbar-burger").click(function() {
