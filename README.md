@@ -44,6 +44,7 @@ This work is built on many amazing open source projects, thanks to all the autho
 
 ## Citation
 
+```
 @misc{chen2025flexworldprogressivelyexpanding3d,
       title={FlexWorld: Progressively Expanding 3D Scenes for Flexiable-View Synthesis}, 
       author={Luxi Chen and Zihan Zhou and Min Zhao and Yikai Wang and Ge Zhang and Wenhao Huang and Hao Sun and Ji-Rong Wen and Chongxuan Li},
@@ -53,3 +54,4 @@ This work is built on many amazing open source projects, thanks to all the autho
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2503.13265}, 
 }
+```
