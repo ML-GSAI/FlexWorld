@@ -1,8 +1,10 @@
 # FlexWorld
+[![arXiv](https://img.shields.io/badge/arXiv-2503.13265-red.svg)](https://arxiv.org/abs/2503.13265)
 [![deploy](https://img.shields.io/badge/🤗%20Hugging%20Face%20-FlexWorld-FFEB3B)](https://huggingface.co/GSAI-ML/FlexWorld)
 [![deploy](https://img.shields.io/badge/Project%20Page-black)](https://ml-gsai.github.io/FlexWorld/)
 
-This is the official PyTorch implementation of FlexWorld: Progressively Expanding 3D Scenes for Flexiable-View Synthesis.
+This is the official PyTorch implementation of *[FlexWorld: Progressively Expanding 3D Scenes for Flexiable-View Synthesis](http://arxiv.org/abs/2503.13265)*.
+
 
 ## Installation
 For complete installation instructions, please see [INSTALL.md](INSTALL.md).
@@ -42,3 +44,12 @@ This work is built on many amazing open source projects, thanks to all the autho
 
 ## Citation
 
+@misc{chen2025flexworldprogressivelyexpanding3d,
+      title={FlexWorld: Progressively Expanding 3D Scenes for Flexiable-View Synthesis}, 
+      author={Luxi Chen and Zihan Zhou and Min Zhao and Yikai Wang and Ge Zhang and Wenhao Huang and Hao Sun and Ji-Rong Wen and Chongxuan Li},
+      year={2025},
+      eprint={2503.13265},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.13265}, 
+}
