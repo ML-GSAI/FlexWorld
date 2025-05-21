@@ -5,6 +5,8 @@
 
 This is the official PyTorch implementation of *[FlexWorld: Progressively Expanding 3D Scenes for Flexiable-View Synthesis](http://arxiv.org/abs/2503.13265)*.
 
+## Update 
+- [2025-5-21]: Add training code and data preperation. 
 
 ## Installation
 For complete installation instructions, please see [INSTALL.md](INSTALL.md).
@@ -21,6 +23,54 @@ A flexible-view 360° scene generation given an image.
 ```bash
 # You are free to modify the corresponding YAML configuration file by name in `./configs/examples`.
 python main_3dgs.py --name room2
+```
+
+## Dataset Preperation
+
+1. Download dataset to local dir following [DL3DV repo](https://huggingface.co/datasets/DL3DV/DL3DV-ALL-960P). You may download only part of them, like 1K.
+
+2. Prepare 3DGS from DL3DV dataset, you can first download colmap annotation from [DL3DV colmap annotation](https://huggingface.co/datasets/DL3DV/DL3DV-ALL-ColmapCache) and then do reconstruction following [Gaussian Splatting repo](https://github.com/graphdeco-inria/gaussian-splatting). The final output will listed like:
+```
+- output/
+  - 001dccbc1f78146a9f03861026613d8e73f39f372b545b26118e37a23c740d5f
+    - point_cloud
+        - iteration_7000
+            - point_cloud.ply
+  - 0003dc82473fd52c53dcbdc2deb4e6e9c3548d6f8c9b03f9ea8d3c7d3ce33546
+    - point_cloud
+        - iteration_7000
+            - point_cloud.ply
+```
+
+3. Run following to generate broken video constructed by 3DGS.
+```bash
+# The path here is an example.
+python gen_dataset.py --dataset_path ./DL3DV/DL3DV-10K/1K --output_path ./DL3DV/processed --gs_path ./gaussian-splatting/output 
+```
+
+4. Run following to label the video constructed.
+```bash
+# The path here is an example.
+python label_dataset.py --input_path ./DL3DV/processed --output_path ./train_data_v2v
+```
+
+## Training 
+1. Change following lines in "./tools/CogVideo/configs/sft_v2v.yaml".
+```yaml
+args:
+  checkpoint_activations: True 
+  experiment_name: lora-disney # your save folder name 
+  mode: finetune
+  load: "xxx/CogVideoX-5B-I2V-SAT/transformer" # path to transformer original checkpoints
+  save: "./ckpts_5b" # path to save dir.
+  train_data: [ "train_data_v2v" ] # Train data path
+  valid_data: [ "train_data_v2v" ] # Validation data path, can be the same as train_data(no recommended)
+```
+
+2. Run training script
+```bash
+cd ./tools/CogVideo/
+bash train_video_v2v.py
 ```
 
 ## ToDo List
@@ -40,7 +90,7 @@ This work is built on many amazing open source projects, thanks to all the autho
 - [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN)
 - [VistaDream](https://github.com/WHU-USI3DV/VistaDream)
 - [LucidDreamer](https://github.com/luciddreamer-cvlab)
-
+- [LLaVA](https://github.com/haotian-liu/LLaVA)
 
 ## Citation
 
