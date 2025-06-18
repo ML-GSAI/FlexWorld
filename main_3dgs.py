@@ -213,8 +213,6 @@ def img_refine_pipe(opt, gs_pipe,imgnum = 6):
 def gs_test_pipe(gs):
     # novel view test
     novel_cam_trajs = cam_trajs_ls[1][:-1]+cam_trajs_ls[2][::-1]
-    novel_cam_trajs = CamPlanner().add_traj().move_forward(0.15).move_orbit_to(0,179,0).reinterpolate().finish()
-    novel_cam_trajs += CamPlanner().add_traj().move_forward(0.15).move_orbit_to(0,-179,0).reinterpolate().finish()[::-1]
     res = []
     for i in range(len(novel_cam_trajs)):
         novel_cam_trajs[i].set_size(vid_ref_ls[0][0].shape[0], vid_ref_ls[0][0].shape[1])
