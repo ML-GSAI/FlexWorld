@@ -76,7 +76,7 @@ bash train_video_v2v.py
 ## ToDo List
 - [ ] A user manual for our camera trajectory, offering support for more flexible trajectory inputs and accommodating a wider variety of trajectory types (such as RealEstate camera input and DL3DV-10K camera input).
 - [ ] A 3DGS viewer for generated results.
-- [ ] Training code for video diffusion model.
+- [x] Training code for video diffusion model.
 
 ## Acknowledgement
 
