@@ -9,6 +9,7 @@ from ops.cam_utils import Mcam
 from ops.utils.general import seed_everything
 from pipe.view_extend import *
 from ops.utils.general import easy_save_video
+from ops.utils.all_traj import get_traj
 
 traj = CamPlanner().add_traj().move_forward(0.1,num_frames=48).finish() # You can define your trajectory here
 
@@ -50,6 +51,7 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--name', type=str, default="test", help='Name of the configuration to load')
+    parser.add_argument('--traj', type=str, default="forward", help='traj instruct or a video filepath')
     parser.add_argument('--basic_opt', type=str, default='configs/basic.yaml', help='Name of the configuration to load')
     parser.add_argument('--output_dir', type=str, default="./results-single-traj", help='Name of the configuration to load')
     parser.add_argument('--input_image_path', type=str, default="./assets/room.png", help='Name of the configuration to load')
@@ -69,6 +71,7 @@ if __name__ == "__main__":
     
     image = Image.open(input_image_path).resize((1024,576))
     image = np.array(image.convert("RGB"))
-    
+
+    traj = get_traj(args.traj)    
     video = video_generate(image, traj)
     easy_save_video(video,f"{output_dir}/{name}.mp4")

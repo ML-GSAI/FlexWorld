@@ -15,15 +15,35 @@ For complete installation instructions, please see [INSTALL.md](INSTALL.md).
 Static scene video generation given an image and a camera trajectory:
 
 ```bash
-# You can utilize our CamPlanner class to freely construct the desired trajectory at line 13 in the `video_generate.py` file.
 python video_generate.py --input_image_path ./assets/room.png --output_dir ./results-single-traj
 ```
+
+You can pass in `traj` argument to specify camera movements, the basic movements is defined in "ops/utils/all_traj.py". The supported camera movements includes `["up","down","left","right","forward","backward","rotate_left","rotate_right"]`.
+
+```bash
+python video_generate.py --input_image_path ./assets/room.png --output_dir ./results-single-traj --traj backward
+```
+
+You can also generate videos share the same camera trajectories with those in DL3DV and Re10K. Just pass the video path to `traj` arguments.
+```bash
+python video_generate.py --input_image_path ./assets/room.png --output_dir ./results-single-traj --traj ./path_to_dl3dv/1.mp4
+```
+
+
 
 A flexible-view 360° scene generation given an image.
 ```bash
 # You are free to modify the corresponding YAML configuration file by name in `./configs/examples`.
 python main_3dgs.py --name room2
 ```
+
+## Visualization
+
+First running:
+```bash
+python 3dgs_viewer.py
+```
+then visit `127.0.0.1:8000` to freely explore the generated scene in the current directory. The script will scan the `ply` file recursively, please doing this after the generation.
 
 ## Dataset Preperation
 
@@ -74,8 +94,8 @@ bash train_video_v2v.py
 ```
 
 ## ToDo List
-- [ ] A user manual for our camera trajectory, offering support for more flexible trajectory inputs and accommodating a wider variety of trajectory types (such as RealEstate camera input and DL3DV-10K camera input).
-- [ ] A 3DGS viewer for generated results.
+- [x] A user manual for our camera trajectory, offering support for more flexible trajectory inputs and accommodating a wider variety of trajectory types (such as RealEstate camera input and DL3DV-10K camera input).
+- [x] A 3DGS viewer for generated results.
 - [x] Training code for video diffusion model.
 
 ## Acknowledgement
